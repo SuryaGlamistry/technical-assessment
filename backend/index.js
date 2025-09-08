@@ -10,10 +10,10 @@ app.use(cors());
 app.use(express.json());
 
 // POST /projects - create project
-app.post("/projects", async (req, res) => {
+app.post("/project", async (req, res) => {
   try {
     const { jobId, jobTitle, jobDescription } = req.body;
-    const [id] = await db("projects").insert({ job_id: jobId, job_title: jobTitle, job_description: jobDescription });
+    const [id] = await db("project").insert({ job_id: jobId, job_title: jobTitle, job_description: jobDescription });
     res.json({ id, jobId, jobTitle, jobDescription });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -21,13 +21,13 @@ app.post("/projects", async (req, res) => {
 });
 
 // GET /projects - list projects
-app.get("/projects", async (req, res) => {
+app.get("/project", async (req, res) => {
   try {
-    const projects = await db("projects").select("*");
+    const projects = await db("project").select("*");
     res.json(projects);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-app.listen(4000, () => console.log("Backend running on http://localhost:4000"));
+app.listen(4002, () => console.log("Backend running on http://localhost:4002"));

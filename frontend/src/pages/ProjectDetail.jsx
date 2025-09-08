@@ -7,13 +7,13 @@ export default function ProjectDetail() {
   const [profile, setProfile] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/projects/${id}`)
+    fetch(`http://localhost:4002/projects/${id}`)
       .then(res => res.json())
       .then(setProject);
   }, [id]);
 
   const generateProfile = async () => {
-    const res = await fetch(`http://localhost:4000/projects/${id}/success-profile`);
+    const res = await fetch(`http://localhost:4002/projects/${id}/success-profile`);
     setProfile(await res.json());
   };
 

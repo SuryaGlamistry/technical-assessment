@@ -4,7 +4,7 @@ function App() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/projects")
+    fetch("http://localhost:4002/project")
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {

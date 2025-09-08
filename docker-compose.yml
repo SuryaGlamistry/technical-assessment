@@ -8,7 +8,7 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: mini_hiring
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
 
@@ -24,7 +24,7 @@ services:
       DB_PASSWORD: password
       DB_NAME: mini_hiring
     ports:
-      - "4000:4000"
+      - "4002:4002"
     command: sh -c "npx knex migrate:latest && npm start"
 
   frontend:
